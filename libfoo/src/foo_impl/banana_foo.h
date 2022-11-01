@@ -8,7 +8,8 @@
 
 namespace foo {
 
-class BananaFoo : public BaseFoo, Public DynamicFactory<BaseFoo, BananaFoo> {
+template <typename T, typename T_ptr = std::shared_ptr<T>>
+class BananaFoo : public BaseFoo<T>, Public DynamicFactory<BaseFoo<T>, BananaFoo<T>> {
 public:
     BaseFoo() {
         class_name = "banana_foo"

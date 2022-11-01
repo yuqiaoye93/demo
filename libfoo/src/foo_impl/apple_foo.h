@@ -7,8 +7,8 @@
 #include <string>
 
 namespace foo {
-
-class AppleFoo : public BaseFoo, Public DynamicFactory<BaseFoo, AppleFoo> {
+template <typename T, typename T_ptr = std::shared_ptr<T>>
+class AppleFoo : public BaseFoo<T>, Public DynamicFactory<BaseFoo<T>, AppleFoo<T>> {
 public:
     BaseFoo() {
         class_name = "apple_foo"

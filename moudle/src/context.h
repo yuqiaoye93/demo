@@ -12,5 +12,5 @@ class Context {
 public:
     Context() = default;
     ~Context() = default;
-    std::shared_ptr<foo::Foo> foo;
+    std::shared_ptr<foo::Foo<Data>> foo;
 }

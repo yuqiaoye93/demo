@@ -10,7 +10,7 @@ bool Foo::foo(std::unorderd_map<std::string id, T_ptr> input) {
     return true;
 };
 
-std::shared_ptr<BaseFoo> Foo::get_foo(std::string foo_name) {
+std::shared_ptr<BaseFoo<T>> Foo::get_foo(std::string foo_name) {
     if (foo_umap.find(foo_name) == foo_map.end()) {
         DynamicWorker<BaseFoo> woker;
         auto ptr = woker.DynamicCreate(foo_name);

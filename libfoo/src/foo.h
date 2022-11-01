@@ -9,9 +9,11 @@
 #include <vector>
 #include <unordered_map>
 #include <string>
+#include <shared_ptr>
 
 namespace foo {
 
+template <typename T, typename T_ptr = std::shared_ptr<T>>
 class Foo {
 public:
     Foo(std::vector<std::string> class_list):_class_list(class_list) {};
@@ -19,7 +21,7 @@ public:
 
     bool foo(std::unorderd_map<std::string id, T_ptr> input);
 
-    std::shared_ptr<BaseFoo> get_foo(std::string foo_name);
+    std::shared_ptr<BaseFoo<T>> get_foo(std::string foo_name);
 
     std::unorderd_map<std::string, std::shared_ptr<BaseFoo>> foo_umap;
 

@@ -7,6 +7,7 @@
 
 namespace foo{
 
+template <typename T, typename T_ptr = std::shared_ptr<T>>
 class BaseFoo {
 public:
     BaseFoo() = default;
