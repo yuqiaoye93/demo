@@ -1,6 +1,6 @@
 #include "src/context.h"
 
-int main {
-    Context ctx;
-    return 0;
+int main() {
+  Context ctx;
+  return 0;
 }

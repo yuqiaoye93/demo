@@ -1,7 +1,8 @@
 #pragma once
 
 #include <string>
-#include <shared_ptr>
+// #include <memory>
+#include <memory>
 
 #ifdef DOG_SERVICE
 #include "src/common/dog.h"
@@ -18,12 +19,12 @@
 
 namespace moudle {
 
-    struct Data {
-        DATA data;
-        std::string id;
-        std::string name;
-    };
+struct Data {
+  DATA data;
+  std::string id;
+  std::string name;
+};
 
-    typedef std::shared_ptr<Data> DataPtr;
+typedef std::shared_ptr<Data> DataPtr;
 
-}
+}  // namespace moudle

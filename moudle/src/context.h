@@ -1,16 +1,14 @@
 #pragma once
 
-#include "src/common/data.h"
+#include <memory>
 
 #include "libfoo/src/foo.h"
-
-#include <shared_ptr>
-
-
+#include "src/common/data.h"
+// #include <memory>
 
 class Context {
-public:
-    Context() = default;
-    ~Context() = default;
-    std::shared_ptr<foo::Foo<Data>> foo;
-}
+ public:
+  Context() = default;
+  ~Context() = default;
+  std::shared_ptr<foo::Foo<int>> foo;
+};

@@ -1,25 +1,26 @@
-#pragma once 
+#pragma once
 
-#include "src/foo_impl/base_foo.h"
-#include "src/common/define.h"
-
-#include <unordered_map>
 #include <string>
+#include <unordered_map>
 
+#include "src/common/define.h"
+#include "src/foo_impl/base_foo.h"
+#include "src/foo_impl/dynamic_factory.h"
 namespace foo {
 
 template <typename T, typename T_ptr = std::shared_ptr<T>>
-class BananaFoo : public BaseFoo<T>, Public DynamicFactory<BaseFoo<T>, BananaFoo<T>> {
-public:
-    BaseFoo() {
-        class_name = "banana_foo"
-    };
-    ~BaseFoo() = default;
+class BananaFoo : public BaseFoo<T>,
+                  public DynamicFactory<BaseFoo<T>, BananaFoo<T>> {
+ public:
+  bool exec(std::unordered_map<std::string, T_ptr> input) {
+    prepare(input);
+    return true;
+  };
 
-    virtual bool exec(std::unorderd_map<std::string id, T_ptr> input) override;
+  bool prepare(std::unordered_map<std::string, T_ptr> input) { return true; }
 
-    virtual bool prepare(std::unorderd_map<std::string id, T_ptr> input) override;
-
+  BananaFoo() { BaseFoo<T>::class_name = "banana_foo"; }
+  //   ~BaseFoo() = default;
 };
 
-}
+}  // namespace foo
